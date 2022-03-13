@@ -92,7 +92,6 @@ const checkAnswer = number => {
 
   const target = getTarget()
   let foundTheTarget = false
-  console.log(target)
   let guessMessage =
     number === -1
       ? GUESS_MESSAGE.INVALID

@@ -14,7 +14,6 @@ const verifyAnswer = () => {
   inputNumber = inputNumber ? Number(inputNumber) : -1
 
   const gameState = checkAnswer(inputNumber)
-  console.log(gameState.guessMessage)
   updateDOM(gameState)
 }
 
