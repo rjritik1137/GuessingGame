@@ -1,18 +1,22 @@
-import { generateRandomTarget } from '../helpers/index'
+import { generateRandomTarget } from '../helpers'
 import {
   GUESS_MESSAGE,
   MAX_LIMIT_GUESS,
   MAX_SCORE,
   MIN_SCORE,
 } from '../resources/constants'
+import { IGame } from './type'
 
-class Game {
+class Game implements IGame {
+  private score: number
+  private highScore: number
+  private gameEnded: boolean
+  private target: number
   constructor() {
     this.score = 10
     this.highScore = 0
     this.gameEnded = false
     this.target = generateRandomTarget(MAX_LIMIT_GUESS)
-    this.highScore = 0
   }
   resetTarget = () => {
     this.target = generateRandomTarget(MAX_LIMIT_GUESS)
@@ -44,8 +48,9 @@ class Game {
   }
 
   getHighScore = () => this.highScore
-  setHighScore = score =>
-    (this.highScore = Math.max(this.highScore, score ? score : this.score))
+  setHighScore = (score?) => {
+    this.highScore = Math.max(this.highScore, score ? score : this.score)
+  }
 
   checkAnswer = number => {
     const target = this.target
@@ -93,5 +98,4 @@ class Game {
 }
 
 const GuessGame = new Game()
-
 export default GuessGame

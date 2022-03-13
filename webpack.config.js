@@ -1,7 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
-  entry: '/src/main.js',
+  entry: '/src/main.ts',
   module: {
     rules: [
       {
@@ -19,7 +19,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.tsx?$/,
+        test: /\.(ts)$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
@@ -39,6 +39,10 @@ module.exports = {
   ],
   //mode: 'development', // or production
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: ['.ts', '.tsx', '.js'],
+  },
 }
 
 // LOADERS
