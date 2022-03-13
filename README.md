@@ -6,3 +6,16 @@
 4. If your score reaches to zero, then you loose the game
 5. You can still restart the game with next random generated number.
 6. Hit npm install, and npm run dev to run the app, and npm run build to build the app.
+
+<br>Install Prettier extenstion for vscode and put below configuration in workspace setting.json to format the code<br>
+
+```yaml
+{
+  'editor.formatOnSave': true,
+  'editor.formatOnPaste': true,
+  'editor.defaultFormatter': 'esbenp.prettier-vscode',
+}
+```
+
+<br>
+You can use you own configuration for prettier as well
