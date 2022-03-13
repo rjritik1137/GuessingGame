@@ -7,10 +7,11 @@ let scripts = []
 
 const appendScript = location => {
   scripts.push(location)
-  var js = document.createElement('script')
-  js.type = 'text/javascript'
-  js.src = location
-  document.body.appendChild(js)
+  let script = document.createElement('script')
+  script.type = 'text/javascript'
+  script.src = location
+  script.async = false
+  document.body.appendChild(script)
 }
 
 function loadScripts(allScripts, pathName = '') {
