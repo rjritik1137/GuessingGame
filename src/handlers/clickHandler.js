@@ -1,16 +1,16 @@
-import Gues from '../game'
+import GuessGame from '../game'
 import { updateDOM } from '../domHelper'
 
 const verifyAnswer = () => {
-  if (Gues.isGameEnded()) return
+  if (GuessGame.isGameEnded()) return
   let inputNumber = document.querySelector('.guess').value
   inputNumber = inputNumber ? Number(inputNumber) : -1
-  const gameState = Gues.checkAnswer(inputNumber)
+  const gameState = GuessGame.checkAnswer(inputNumber)
   updateDOM(gameState)
 }
 
 const playAgain = () => {
-  const gameState = Gues.resetGame()
+  const gameState = GuessGame.resetGame()
   document.querySelector('.guess').value = ''
   updateDOM(gameState)
 }
