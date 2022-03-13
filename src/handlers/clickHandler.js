@@ -1,24 +1,18 @@
-const updateDOM = ({ guessMessage, score, foundTheTarget, target }) => {
-  document.querySelector('.message').textContent = guessMessage
-  document.querySelector('.score').textContent = score
-  document.querySelector('.number').textContent = foundTheTarget ? target : '?'
-  const highScoreElement = document.querySelector('.highscore')
-  if (foundTheTarget && highScoreElement) {
-    const currentScore = Number(highScoreElement.textContent)
-    if (score > currentScore) highScoreElement.textContent = score
-  }
-}
+import Gues from '../game'
+import { updateDOM } from '../domHelper'
+
 const verifyAnswer = () => {
-  if (isGameEnded()) return
+  if (Gues.isGameEnded()) return
   let inputNumber = document.querySelector('.guess').value
   inputNumber = inputNumber ? Number(inputNumber) : -1
-
-  const gameState = checkAnswer(inputNumber)
+  const gameState = Gues.checkAnswer(inputNumber)
   updateDOM(gameState)
 }
 
 const playAgain = () => {
-  const gameState = resetGame()
+  const gameState = Gues.resetGame()
   document.querySelector('.guess').value = ''
   updateDOM(gameState)
 }
+
+export { verifyAnswer, playAgain }
